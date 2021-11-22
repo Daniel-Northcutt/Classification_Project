@@ -22,3 +22,37 @@
 
 - Deliver a report that a non-data scientist can read through and understand what steps were taken, why and what was the outcome?
 
+# Audience
+-Your target audience for your notebook walkthrough is your direct manager and their manager. This should guide your language and level of explanations in your walkthrough.
+
+# Deliverables
+- Jupyter Notebook Report
+- README.md file containing the project information
+- CSV file with customer_id, probability of churn, and prediction of churn
+- Acquire and prepare files
+- Notebook walkthrough presentation
+
+------------------------------------------------------------------------------
+
+# Preliminary Questions:
+
+### Why are our customers churning?
+(data exploration needed)
+
+## Why are our customers staying?
+(data exploration needed)
+
+## Can we predict churn?
+
+------------------------------------------------------------------------------
+
+## Data Dictionary 
+
+## Project Specifications
+- Plan
+- Acquire
+- Prepare
+- Explore
+- Model Evaluate
+
+## Conclusion
