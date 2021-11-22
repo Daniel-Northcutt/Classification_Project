@@ -1,35 +1,18 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[22]:
-
-
 import pandas as pd
 import numpy as np
 import env
 import os
 
+## Telco Churn Data Acquire
+#### Connection information from mySQL
 
-# ## Telco Churn Data Acquire
-# 
-# #### Connection information from mySQL
-
-# In[23]:
 
 
 def get_connection(db, user=env.user, host=env.host, password=env.password):
     connection_info = f'mysql+pymysql://{user}:{password}@{host}/{db}'
     return connection_info
 
-
-# In[ ]:
-
-
-
-
-
-# In[24]:
-
+##########################################
 
 def new_telco_data():
     '''
@@ -49,8 +32,6 @@ def new_telco_data():
     
     return df
 
-
-# In[25]:
 
 
 def get_telco_data():
@@ -74,15 +55,6 @@ def get_telco_data():
     return df
 
 
-# In[26]:
-
-
-import os
-telco_data = get_telco_data()
-telco_data
-
-
-# In[ ]:
 
 
 
