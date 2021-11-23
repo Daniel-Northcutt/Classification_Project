@@ -40,14 +40,23 @@ def prep_telco(df):
                                                'Bank transfer (automatic)': 1,  'Electronic check': 0})
 
 
-    # creating dummy values for payment, internet, & contract (*important values*)
-    dummy_df = pd.get_dummies(df[['payment_type',"internet_service_type","contract_type"]])
-    df = pd.concat([df, dummy_df], axis=1)
-
-
+    #Rename columns
     columns_to_rename = {'contract_type': 'contract',
-                   'internet_service_type': 'internet'} # Renaming columns
-    df = df.rename(columns=columns_to_rename) 
+                    'internet_service_type': 'internet',
+                    'gender': 'is_male',
+                     'payment_type_id': 'payment_id',
+                     'contract_type_id': 'contract_type',
+                     'internet_service_type_DSL': 'DSL',
+                     'internet_service_type_Fiber optic': 'fiber_optic',
+                     'internet_service_type_None': 'no_internet',
+                     'contract_type_Month-to-month': 'month_to_month',
+                     'contract_type_One year': 'one_year_contract',
+                     'contract_type_Two year': 'two_year_contract'}
+    df = df.rename(columns = columns_to_rename)
+    
+    #dropping columns not need (#potentially update)
+    columns_to_drop = {'customer_id'}
+    df = df.drop(columns=columns_to_drop)
     
     return df
 
