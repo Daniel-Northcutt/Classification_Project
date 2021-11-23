@@ -4,11 +4,14 @@ import numpy as np
 import env
 import os
 
-
+#------------------- TELCO CLEANING FUNCTION -------------------#
 
 #preliminary clean delco:
 def prep_telco(df):
-
+    '''
+    This function cleans the Telco dataset to better evaluate our data:
+    cleaning, encoding, dummies, rename
+    '''
     df = df.drop_duplicates()  #Drop duplicates
     
     #11 values are blank strings for total charges representing 11 customers at 0 tenure
@@ -47,3 +50,21 @@ def prep_telco(df):
     df = df.rename(columns=columns_to_rename) 
     
     return df
+
+
+#------------------- TELCO SPLIT -------------------#
+
+def split_telco_data(df):
+    '''
+    This function performs split on telco data, stratify churn.
+    Returns train, validate, and test dfs.
+    '''
+    train_validate, test = train_test_split(df, test_size=.2, 
+                                        random_state=123, 
+                                        stratify=df.churn)
+    train, validate = train_test_split(train_validate, test_size=.3, 
+                                   random_state=123, 
+                                   stratify=train_validate.churn)
+    return train, validate, test
+
+#--------------------------------------#
