@@ -31,28 +31,92 @@
 - CSV file with customer_id, probability of churn, and prediction of churn
 - Acquire and prepare files
 - Notebook walkthrough presentation
+<hr style="border:2px solid black"> </hr>
 
-------------------------------------------------------------------------------
+<hr style="border:2px solid black"> </hr>
 
-# Preliminary Questions:
 
-### Why are our customers churning?
-(data exploration needed)
+# Key Findings:
 
-## Why are our customers staying?
-(data exploration needed)
+### The customer churn rate is the highest within the 6 months of tenure
 
-## Can we predict churn?
+### Month to month customers serve as the highest churn rate for services
+  - We want to maintain this service so we dug deeper into the customers data
 
-------------------------------------------------------------------------------
+### Fiber customers are more likely to churn than DSL 
 
-## Data Dictionary 
+### Customers who use manual payments are more likely to churn than automatic payments
 
-## Project Specifications
-- Plan
-- Acquire
-- Prepare
-- Explore
-- Model Evaluate
 
-## Conclusion
+<hr style="border:2px solid black"> </hr>
+
+# Hypothesis Testing:
+
+### Created 3 chi^2 hypothesis tests
+
+#### Hypothesis 1: Determine if there is a relationship between DSL and churn
+  - There is a relationship between DSL and churn
+  
+#### Hypothesis 2: Determine if there is a relationship between Fiber Optic and churn
+  - There is a relationship between Fiber and churn
+
+#### Hypothesis 3: Determine if there is a relationship between payment type and churn
+  - There is a relationship between manual payments and churn
+
+### Takeaways: We tested and graphed our data analysis
+
+
+<hr style="border:2px solid black"> </hr>
+
+# Modeling:
+
+### Created 4 modeling tests: (Decision Tree, Random Forest, 2x Linear Regression)
+ - All tested above our baseline prediction model
+ - We used the features : 'payment_type', 'month_to_month', 'partner', 'dependents', 'senior_citizen' in our model
+ - These were used in a Decision Tree and Random Forest testing model
+ - For Linear Regression we substituted 'payment_type' with DSL for one model and fiber for the other
+ - Our Linear Regression fiber model trained the best and used it to test our data with improved accuracy
+
+<hr style="border:2px solid black"> </hr>
+
+# Project Takeaways:
+
+### We were able to create a model that predicted a 76.7% chance whether or not a customer would churn based on a few features
+### Our data dived into causes for churn such as DSL vs Fiber and manual vs automatic payments
+### With this information we now have a strong model to use for the company and have better categorized customers to help reduce the churn rate
+
+
+<hr style="border:2px solid black"> </hr>
+
+
+
+# Data Dictionary
+| Feature                    | Datatype               | Description                                                           |
+|:---------------------------|:-----------------------|:----------------------------------------------------------------------|
+| customer_id                | 7043 non-null: object  | Identification number for customer                 |
+| gender                     | 7043 non-null: object  | Customer gender, male or female                    |
+| senior_citizen             | 7043 non-null: int64   | Yes or No, is the customer a senior citizen        |
+| partner                    | 7043 non-null: object  | Yes or No, does the customer customer has a parter |
+| dependents                 | 7043 non-null: object  | Number of dependents a customer has                |
+| tenure                     | 7043 non-null: int64   | Months a customer has been with the company        |
+| phone_service              | 7043 non-null: object  | Phone Service plan, Yes or No                      |
+| multiple_lines             | 7043 non-null: object  | Multiple lines, Yes or No                          |
+| internet_service_type_id   | 7043 non-null: int64   | 1, 2, 3                                            |
+| online_security            | 7043 non-null: object  | Yes, no, or no internet service                    |
+| online_backup              | 7043 non-null: object  | Yes, no, or no internet service                    |
+| device_protection          | 7043 non-null: object  | Yes, no, or no internet service                    |
+| tech_support               | 7043 non-null: object  | Yes, no, or no internet service                    |
+| streaming_tv               | 7043 non-null: object  | Yes, no, or no internet service                    |
+| streaming_movies           | 7043 non-null: object  | Yes, no, or no internet service                    |
+| contract_type_id           | 7043 non-null: int64   | 1, 2, 3                                            |
+| paperless_billing          | 7043 non-null: object  | Yes or no, customer uses paperless billing         |
+| payment_type_id            | 7043 non-null: int64   | 1, 2, 3, 4                                         |
+| monthly_charges            | 7043 non-null: float64 | Monthly charges the customer pays                  |
+| total_charges              | 7043 non-null: object  | Total charges the customer has paid                |
+| churn                      | 7043 non-null: object  | Yes or no, whether or not the customer has churned |
+| contract_type_id.1         | 7043 non-null: int64   | 1, 2, 3                                            |
+| contract_type              | 7043 non-null: object  | Month-to-month, One year, Two year                 |
+| internet_service_type_id.1 | 7043 non-null: int64   | 1, 2, 3                                            |
+| internet_service_type      | 7043 non-null: object  | DSL, Fiber Optic, or None                          |
+| payment_type_id.1          | 7043 non-null: int64   | 1, 2, 3, 4                                         |
+| payment_type               | 7043 non-null: object  | E-check, mailed check, bank transfer, credit card  |
