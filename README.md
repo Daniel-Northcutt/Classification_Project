@@ -33,26 +33,60 @@
 - Notebook walkthrough presentation
 <hr style="border:2px solid black"> </hr>
 
-------------------------------------------------------------------------------
+<hr style="border:2px solid black"> </hr>
+
 
 # Key Findings:
 
 ### The customer churn rate is the highest within the 6 months of tenure
+
 ### Month to month customers serve as the highest churn rate for services
+  - We want to maintain this service so we dug deeper into the customers data
 
-# 
+### Fiber customers are more likely to churn than DSL 
+
+### Customers who use manual payments are more likely to churn than automatic payments
 
 
-### Why are our customers churning?
-(data exploration needed)
+<hr style="border:2px solid black"> </hr>
 
-## Why are our customers staying?
-(data exploration needed)
+# Hypothesis Testing:
 
-## Can we predict churn?
+### Created 3 chi^2 hypothesis tests
 
-------------------------------------------------------------------------------
+#### Hypothesis 1: Determine if there is a relationship between DSL and churn
+  - There is a relationship between DSL and churn
+  
+#### Hypothesis 2: Determine if there is a relationship between Fiber Optic and churn
+  - There is a relationship between Fiber and churn
 
+#### Hypothesis 3: Determine if there is a relationship between payment type and churn
+  - There is a relationship between manual payments and churn
+
+### Takeaways: We tested and graphed our data analysis
+
+
+<hr style="border:2px solid black"> </hr>
+
+# Modeling:
+
+### Created 4 modeling tests: (Decision Tree, Random Forest, 2x Linear Regression)
+ - All tested above our baseline prediction model
+ - We used the features : 'payment_type', 'month_to_month', 'partner', 'dependents', 'senior_citizen' in our model
+ - These were used in a Decision Tree and Random Forest testing model
+ - For Linear Regression we substituted 'payment_type' with DSL for one model and fiber for the other
+ - Our Linear Regression fiber model trained the best and used it to test our data with improved accuracy
+
+<hr style="border:2px solid black"> </hr>
+
+# Project Takeaways:
+
+### We were able to create a model that predicted a 76.7% chance whether or not a customer would churn based on a few features
+### Our data dived into causes for churn such as DSL vs Fiber and manual vs automatic payments
+### With this information we now have a strong model to use for the company and have better categorized customers to help reduce the churn rate
+
+
+<hr style="border:2px solid black"> </hr>
 ## Data Dictionary 
 
 ## Project Specifications
