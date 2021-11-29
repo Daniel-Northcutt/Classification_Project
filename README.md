@@ -87,16 +87,7 @@
 
 
 <hr style="border:2px solid black"> </hr>
-## Data Dictionary 
 
-## Project Specifications
-- Plan
-- Acquire
-- Prepare
-- Explore
-- Model Evaluate
-
-## Conclusion
 
 
 # Data Dictionary
