@@ -8,10 +8,7 @@ import os
 
 #preliminary clean delco:
 def prep_telco(df):
-    '''
-    This function cleans the Telco dataset to better evaluate our data:
-    cleaning, encoding, dummies, rename
-    '''
+
     df = df.drop_duplicates()  #Drop duplicates
     
     #11 values are blank strings for total charges representing 11 customers at 0 tenure
@@ -36,9 +33,13 @@ def prep_telco(df):
     df['streaming_movies'] = df.streaming_movies.replace({'No': 0, "Yes": 1, "No internet service": 0})
     df['paperless_billing'] = df.paperless_billing.replace({'Yes': 1, 'No': 0})
     #df['contract_type'] = df.contract_type.replace({'Month-to-month': 0, 'One year': 1, 'Two year': 2})
-    df['payment_type'] = df.payment_type.replace({'Mailed check': 0, 'Credit card (automatic)': 1, 
+    df['payment_type'] = df.payment_type.map({'Mailed check': 0, 'Credit card (automatic)': 1, 
                                                'Bank transfer (automatic)': 1,  'Electronic check': 0})
 
+
+    # creating dummy values for payment, internet, & contract (*important values*)
+    dummy_df = pd.get_dummies(df[["internet_service_type","contract_type"]])
+    df = pd.concat([df, dummy_df], axis=1)
 
     #Rename columns
     columns_to_rename = {'contract_type': 'contract',
@@ -55,10 +56,13 @@ def prep_telco(df):
     df = df.rename(columns = columns_to_rename)
     
     #dropping columns not need (#potentially update)
-    columns_to_drop = {'customer_id'}
+    columns_to_drop = {'customer_id', 'internet_service_type_id', 'internet', 'payment_id'}
     df = df.drop(columns=columns_to_drop)
     
     return df
+    
+####FUNCTION NOTES:
+#drop internet, internet_service_type_id, payment_id
 
 
 #------------------- TELCO SPLIT -------------------#
