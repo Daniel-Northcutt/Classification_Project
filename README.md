@@ -31,10 +31,17 @@
 - CSV file with customer_id, probability of churn, and prediction of churn
 - Acquire and prepare files
 - Notebook walkthrough presentation
+<hr style="border:2px solid black"> </hr>
 
 ------------------------------------------------------------------------------
 
-# Preliminary Questions:
+# Key Findings:
+
+### The customer churn rate is the highest within the 6 months of tenure
+### Month to month customers serve as the highest churn rate for services
+
+# 
+
 
 ### Why are our customers churning?
 (data exploration needed)
