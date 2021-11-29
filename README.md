@@ -88,6 +88,14 @@
 
 <hr style="border:2px solid black"> </hr>
 
+# Reproduce this Project:
+#### You will need your own env file with the database credentials along with the necessary files listed below to run the project notebook
+
+- Download the acquire.py, prepare.py, and Telco_Churn_Final files into your working directory
+- Create your own env file to your directory using (username,password,host #)
+- Run the Telco_Churn_Final notebook
+
+<hr style="border:2px solid black"> </hr>
 
 
 # Data Dictionary
